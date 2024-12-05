@@ -21,13 +21,13 @@ export function BlocksFlow({
     const blockTypesRecord = useBlockTypes((state) => state.getData());
     const isSelection = useCreateRelation((state) => state.isSelection());
     const unselectPort = useCreateRelation((state) => state.unselectPort);
-    const portPositions = usePortPositions((state) => state.portPositions);
+    const portPositions = usePortPositions();
 
     return (
         <Root
             field={<Field onClick={isSelection ? unselectPort : onFlowClick} />}
             arrows={<Arrows blocks={blocks} portPositions={portPositions} />}
-            blocks={blocks.map((block) => (
+            blocks={blocks?.map((block) => (
                 <BlockView
                     key={block.id}
                     blockTypesRecord={blockTypesRecord}

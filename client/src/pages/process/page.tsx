@@ -9,6 +9,8 @@ export function Page() {
     const process = useProcess(processId);
     const startCreate = useStartCreate();
 
+    console.log(process.data);
+
     return (
         <Root
             flow={

@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import { useCallback } from 'react';
-import { Position } from '../../domain/position';
+import { Ref } from 'react';
 
 export function Layout({
     text,
@@ -9,30 +8,17 @@ export function Layout({
     isCanEndSelection,
     isSelected,
     onTargetClick,
-    id,
-    onChangePosition,
+    portRef,
 }: {
     text: string;
     type: 'input' | 'output';
     isSelected?: boolean;
     isCanEndSelection?: boolean;
     onTargetClick?: () => void;
-    id: string;
-    onChangePosition: (id: string, position?: Position) => void;
+    portRef: Ref<HTMLButtonElement>;
 }) {
-    const callbackRef = useCallback(
-        (ref: HTMLButtonElement | null) => {
-            if (ref) {
-                onChangePosition?.(id, {
-                    x: ref.offsetLeft + ref.offsetWidth / 2,
-                    y: ref.offsetTop + ref.offsetHeight / 2,
-                });
-            } else {
-                onChangePosition?.(id);
-            }
-        },
-        [id, onChangePosition],
-    );
+    console.log(isSelected);
+    console.log(isCanEndSelection);
 
     return (
         <div
@@ -42,7 +28,7 @@ export function Layout({
             })}
         >
             <div className={styles.text}>{text}</div>
-            <button ref={callbackRef} onClick={onTargetClick} className={styles.target} />
+            <button ref={portRef} onClick={onTargetClick} className={styles.target} />
         </div>
     );
 }

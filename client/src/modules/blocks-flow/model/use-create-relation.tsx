@@ -16,15 +16,14 @@ type Store = {
 
 export const useCreateRelation = create<Store>((set, get) => ({
     selectedPort: undefined,
+    isSelection: () => !!get().selectedPort,
 
     setSelectedPort: (port) => {
         set({ selectedPort: port });
     },
 
-    isSelection: () => !!get().selectedPort,
-
     getIsSelectedPort: (port: Port) => {
-        return !!get().selectedPort && portsAreEqual(port, get().selectedPort!);
+        return !!get().selectedPort && portsAreEqual(port, get().selectedPort);
     },
 
     getIsCanStartSelection: (port: Port, blocks: BlockConfig[]) => {
@@ -33,7 +32,7 @@ export const useCreateRelation = create<Store>((set, get) => ({
 
     getIsCanEndSelection: (port: Port, blocks: BlockConfig[]) => {
         return (
-            !!get().setSelectedPort! &&
+            !!get().setSelectedPort &&
             !isPortTypesSame(port, get().selectedPort) &&
             !portIsAlreadyInUse(blocks, port)
         );
@@ -46,7 +45,7 @@ export const useCreateRelation = create<Store>((set, get) => ({
         }
 
         if (get().getIsCanEndSelection(port, blocks)) {
-            const selectedPort = get().selectedPort!;
+            const selectedPort = get().selectedPort;
             const params =
                 port.type === 'input'
                     ? {
@@ -56,7 +55,7 @@ export const useCreateRelation = create<Store>((set, get) => ({
                           outputPort: selectedPort!.port,
                       }
                     : {
-                          inputId: selectedPort.blockId,
+                          inputId: selectedPort!.blockId,
                           inputPort: selectedPort!.port,
                           outputId: port.blockId,
                           outputPort: port.port,

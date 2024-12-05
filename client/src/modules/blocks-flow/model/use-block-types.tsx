@@ -6,13 +6,12 @@ type Store = {
     blockTypes: BlockTypes[];
     getData: () => BlockTypesRecord;
     isLoading: boolean;
-    setBlocks: (block: BlockTypes) => void;
     refetch: () => void;
 };
 
 export const useBlockTypes = create<Store>((set, get) => {
     const fetchBlockTypes = () => {
-        return blocksFlowApi.getBlockTypes().then((blockTypes) => {
+        blocksFlowApi.getBlockTypes().then((blockTypes) => {
             set({
                 blockTypes,
                 isLoading: false,
@@ -24,7 +23,6 @@ export const useBlockTypes = create<Store>((set, get) => {
 
     return {
         blockTypes: [],
-        setBlocks: () => {},
         getData: () => {
             return getBlockTypesRecord(get().blockTypes);
         },

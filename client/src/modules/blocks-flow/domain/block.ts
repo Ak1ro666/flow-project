@@ -1,5 +1,6 @@
+export type BlockId = string;
 export type BlockConfig = {
-    id: string;
+    id: BlockId;
     name: string;
     type: string;
 
@@ -8,12 +9,13 @@ export type BlockConfig = {
     y: number;
     x: number;
 
-    inputs: Dependency[];
-    outputs: Dependency[];
+    inputs: Relation[];
+    outputs: Relation[];
 };
 
-export type Dependency = {
-    id: string;
+export type RelationId = string;
+export type Relation = {
+    id: RelationId;
     outputId: string;
     outputPort: string;
     inputId: string;

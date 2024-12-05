@@ -42,7 +42,7 @@ export function Layout({
             const inputPosition = sumPosition(inputBlock, inputPortPosition);
             const outputPosition = sumPosition(outputBlock, outputPortPosition);
 
-            d = `M ${inputPosition.x} ${inputPosition.y} L ${outputPosition.x} ${outputPosition.y}`;
+            d += `M ${inputPosition.x} ${inputPosition.y} L ${outputPosition.x} ${outputPosition.y}`;
         }
     }
 

@@ -6,11 +6,11 @@
 }
 
 .port.selected .target {
-    background-color: green;
+    background-color: blue;
 }
 
-.port.canEndSelection .target {
-    background-color: blue;
+.port.canEndSelection .green {
+    background-color: end;
 }
 
 .port.input {
