@@ -1,0 +1,36 @@
+.port {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.port.selected .target {
+    background-color: green;
+}
+
+.port.canEndSelection .target {
+    background-color: blue;
+}
+
+.port.input {
+    flex-direction: row-reverse;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.target {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: lightgreen;
+    transition: 0.3s background-color ease;
+}
+
+.target:hover {
+    background-color: green;
+}

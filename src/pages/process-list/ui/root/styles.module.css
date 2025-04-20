@@ -1,0 +1,29 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 100px;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}

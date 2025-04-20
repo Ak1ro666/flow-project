@@ -1,0 +1,26 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: absolute;
+    z-index: 3;
+
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    gap: 5px;
+    min-width: 200px;
+    min-height: 50px;
+}
+
+.ports {
+    display: flex;
+    justify-content: space-between;
+}
+
+.portsSlot {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

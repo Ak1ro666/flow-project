@@ -1,0 +1,24 @@
+.root {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-index-modal);
+}
+
+.content {
+    position: absolute;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 20000;
+}
